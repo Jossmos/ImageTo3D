@@ -1,0 +1,8 @@
+version: 2
+updates:
+  # Automatische beveiligings- en dependency-updates voor Python packages
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
