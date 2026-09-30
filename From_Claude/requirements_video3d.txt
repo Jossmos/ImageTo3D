@@ -1,0 +1,46 @@
+# ============================================================
+# requirements_video3d.txt
+# Dependencies for video_to_3d_pipeline.py ONLY.
+# Install with:
+#   pip install -r requirements_video3d.txt
+#
+# COLMAP must be installed separately (not a pip package):
+#   Ubuntu/Debian : sudo apt install colmap
+#   macOS         : brew install colmap
+#   Windows       : https://github.com/colmap/colmap/releases
+#   Docker        : colmap/colmap (official image)
+# ============================================================
+
+# --- Core numeric / image stack ---
+numpy>=1.24,<2.0
+opencv-python>=4.9.0
+Pillow>=10.0
+
+# --- PyTorch (install the CUDA-enabled build from pytorch.org if you have a GPU)
+# CPU-only fallback is listed here; replace with your CUDA version:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+torch>=2.2
+torchvision>=0.17
+
+# --- Hugging Face ecosystem (Depth Anything V2) ---
+transformers>=4.40
+accelerate>=0.28          # optional but speeds up model loading on GPU
+huggingface_hub>=0.22
+
+# --- 3D processing ---
+open3d>=0.18.0
+
+# ============================================================
+# Notes
+# ============================================================
+# 1. open3d wheels are available for Python 3.8–3.11.
+#    Python 3.12 support was added in open3d 0.18; use that or newer.
+#
+# 2. For large videos (> 300 frames) on a single GPU, consider
+#    using the smaller checkpoint:
+#    depth-anything/Depth-Anything-V2-Small-hf  (~25 MB)
+#    instead of the Large variant (~1.3 GB).
+#
+# 3. COLMAP GPU feature extraction requires a CUDA-capable GPU
+#    and the CUDA build of COLMAP.  Pass --SiftExtraction.use_gpu 0
+#    (edit _run_colmap in the pipeline) for CPU-only COLMAP.

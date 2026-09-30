@@ -1,0 +1,93 @@
+# ========================================================
+# GitIgnore for ImageTo3D
+# ========================================================
+
+# --- Python & Virtual Environments ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.venv311/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Machine Learning Checkpoints & Cache ---
+# Belangrijk: GitHub weigert bestanden > 100MB!
+# Model checkpoints horen niet in Git (download via setup script of Hugging Face)
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.weights
+.cache/
+**/.cache/
+
+# --- Externe Gekloonde Repositories ---
+# Depth-Anything-V2 is een eigen GitHub-repo en moet niet genest gecommit worden
+Depth-Anything-V2/
+
+# --- 3D Modellen & Zware Output Bestanden ---
+*.stl
+*.obj
+*.ply
+*.blend
+*.blend1
+*.3mf
+*.gcode
+*.fbx
+*.zip
+*.tar.gz
+
+# --- Gegenereerde Pipeline Outputs & Test Mappen ---
+output/
+3_3d_model_output/
+3_3d_model_output.zip
+rubbish/
+Videos/
+1_removebg_output.png
+2_depth_map_output.png
+
+# --- Test Afbeeldingen (voorkomt push van privéfoto's / WhatsApp afbeeldingen) ---
+Images/
+
+# --- Logs & Debug Bestanden ---
+*.log
+blender_debug.log
+pipeline_out.log
+
+# --- IDE & Besturingssysteem ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# --- Gevoelige data & Environment variabelen ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
